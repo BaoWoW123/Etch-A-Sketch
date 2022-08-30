@@ -2,6 +2,8 @@ body {
     background-color: light gray;
 }
 #grid {
+    display: inline;
+
 }
 
 .gridbox {
@@ -9,4 +11,19 @@ body {
     border: 1px solid black;
     padding:10px 10px;
     margin: -2px 0px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:20px 100px;
+    padding: 50px;
+    font-size: 40px;
+}
+
+.button {
+    font-size: 20px;
+    margin-top: 100px;
 }
