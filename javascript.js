@@ -23,18 +23,19 @@ for (i = 0; i < 256; i++) {
     const gridbox = document.createElement('div');
     gridbox.classList.add('gridbox');
     grid.appendChild(gridbox);
-    let eventHandler = (() => gridbox.style.backgroundColor = 'black')
+    let etchBlack = (() => gridbox.style.backgroundColor = 'black');
+    let erase = (() => gridbox.style.backgroundColor = 'white');
+
     button.addEventListener('click', () => {
     if (button.textContent == 'Etch: On') {
-            gridbox.addEventListener('mouseover', (eventHandler))
+            gridbox.addEventListener('mouseover', (etchBlack))
         }
     if (button.textContent == 'Etch: Off') {
-            gridbox.removeEventListener('mouseover', (eventHandler))
+            gridbox.removeEventListener('mouseover', (etchBlack))
+            gridbox.removeEventListener('mouseover', (erase))
         }
     if (button.textContent == 'Erase') {
-        gridbox.addEventListener('mouseover', (erase) => {
-            gridbox.style.backgroundColor ='white';
-        })
-    }
-    })   
+        gridbox.addEventListener('mouseover', (erase))
+        }
+    })
 }

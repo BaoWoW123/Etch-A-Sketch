@@ -1,16 +1,5 @@
 body {
-
-}
-#grid {
-    display: inline;
-
-}
-
-.gridbox {
-    display: inline-block;
-    border: 1px solid black;
-    padding:10px 10px;
-    margin: -2px 0px;
+    background-color: lightgray;
 }
 
 .title {
@@ -27,3 +16,27 @@ body {
     font-size: 20px;
     margin-top: 100px;
 }
+
+.gridsize {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    font-size: 20px;
+}
+
+#grid {
+    display: block;
+    border: 1px solid red;
+    margin: 10px 400px;
+    background-color: white;
+}
+
+.gridbox {
+    display: inline-block;
+    border: 1px solid black;
+    padding:10px 10px;
+    margin: -2px 0px;
+}
+
