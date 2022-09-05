@@ -9,9 +9,11 @@
 
     <body>
         <div class="title">Etch-A-Sketch</div>
-        <div class="gridslider">Gridsize
+        <div class="gridslider">Gridsize 
+            
             <div>
-                <input type="range"  min="16" max="100">
+                <input type="range" id="grid_dimension" value="24" min="0" max="48" oninput="this.nextElementSibling.value = grid_dimension.value">
+                <output>24</output>
             </div>
         </div>
         <div id="grid"></div>

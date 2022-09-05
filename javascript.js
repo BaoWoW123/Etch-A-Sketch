@@ -18,7 +18,7 @@ button.addEventListener('click', (etch) => {
 
 })
 
-for (i = 0; i < 256; i++) {
+for (i = 0; i < grid_dimension.value * grid_dimension.value; i++) {
     const grid = document.querySelector('#grid')
     const gridbox = document.createElement('div');
     gridbox.classList.add('gridbox');
