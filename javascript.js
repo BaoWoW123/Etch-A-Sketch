@@ -5,6 +5,20 @@ button.classList.add('button');
 button.textContent = 'Etch: Off';
 title.appendChild(button);
 
+let slider = document.getElementById('gridSize');
+let output = document.getElementById('output');
+output.textContent = slider.value;
+makeGrid(24)
+slider.oninput = function() {
+    output.textContent = this.value;
+    size = this.value;
+    clearGrid()
+    makeGrid(size)
+}
+
+function clearGrid() {
+    document.getElementById('grid').innerHTML = ''
+}
 button.addEventListener('click', (etch) => {
     if (button.textContent === 'Etch: Off') {
         return button.textContent = 'Etch: On';
@@ -15,10 +29,10 @@ button.addEventListener('click', (etch) => {
     else {
         return button.textContent = 'Etch: Off';
     }
-
 })
 
-for (i = 0; i < grid_dimension.value * grid_dimension.value; i++) {
+function makeGrid(size) {
+    for (i = 0; i < size * size; i++) {
     const grid = document.querySelector('#grid')
     const gridbox = document.createElement('div');
     gridbox.classList.add('gridbox');
@@ -38,4 +52,5 @@ for (i = 0; i < grid_dimension.value * grid_dimension.value; i++) {
         gridbox.addEventListener('mouseover', (erase))
         }
     })
+}
 }
