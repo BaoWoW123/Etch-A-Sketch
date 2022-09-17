@@ -8,7 +8,7 @@ title.appendChild(button);
 let slider = document.getElementById('gridSize');
 let output = document.getElementById('output');
 output.textContent = slider.value;
-makeGrid(24)
+
 slider.oninput = function() {
     output.textContent = this.value;
     size = this.value;
@@ -19,7 +19,8 @@ slider.oninput = function() {
 function clearGrid() {
     document.getElementById('grid').innerHTML = ''
 }
-button.addEventListener('click', (etch) => {
+
+function etch () {
     if (button.textContent === 'Etch: Off') {
         return button.textContent = 'Etch: On';
     }
@@ -29,9 +30,11 @@ button.addEventListener('click', (etch) => {
     else {
         return button.textContent = 'Etch: Off';
     }
-})
+} 
 
-function makeGrid(size) {
+button.addEventListener('click', (etch))
+
+function makeGrid(size) {    
     for (i = 0; i < size * size; i++) {
     const grid = document.querySelector('#grid')
     const gridbox = document.createElement('div');
@@ -40,7 +43,18 @@ function makeGrid(size) {
     let etchBlack = (() => gridbox.style.backgroundColor = 'black');
     let erase = (() => gridbox.style.backgroundColor = 'white');
 
-    button.addEventListener('click', () => {
+    if (button.textContent == 'Etch: On') {
+        gridbox.addEventListener('mouseover', (etchBlack))
+    }
+if (button.textContent == 'Etch: Off') {
+        gridbox.removeEventListener('mouseover', (etchBlack))
+        gridbox.removeEventListener('mouseover', (erase))
+    }
+if (button.textContent == 'Erase') {
+    gridbox.addEventListener('mouseover', (erase))
+    }
+    
+    button.addEventListener('click', (etchmode) => {
     if (button.textContent == 'Etch: On') {
             gridbox.addEventListener('mouseover', (etchBlack))
         }
@@ -52,5 +66,9 @@ function makeGrid(size) {
         gridbox.addEventListener('mouseover', (erase))
         }
     })
+    
 }
+    document.getElementById('grid').style.gridTemplateColumns = `repeat(${size}, 1fr)`
 }
+
+window.onload = makeGrid(24)
